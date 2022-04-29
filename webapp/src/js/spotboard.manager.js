@@ -83,6 +83,10 @@ define([
         "auth-token": Spotboard.config["auth_token"],
       },
       success: function (e) {
+        if (e.data.time.NoMoreUpdate) {
+          $df.resolve("success");
+          return;
+        }
         Spotboard.$runs = e.data;
         $df.resolve("success");
       },
