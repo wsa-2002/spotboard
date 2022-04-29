@@ -36,8 +36,8 @@ define([
   Spotboard.Manager.loadContest = function () {
     var $df = new $.Deferred();
 
-    var path = joinPath("./sample/", "/contest.json");
-
+    // var path = joinPath("./sample/", "/contest.json");
+    var path = "./sample/contest.json";
     var onError = function (err) {
       if (console) console.log("Unable to fetch " + path + " : " + err);
       Spotboard.View.displaySystemMessage("Failed : " + err, "red");
@@ -80,8 +80,7 @@ define([
       url: path,
       dataType: "json",
       headers: {
-        "auth-token":
-          "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjozMjgyLCJleHBpcmUiOiIyMDIyLTA1LTAyVDAwOjQ1OjMwLjI4MjM3NSIsImNhY2hlZF91c2VybmFtZSI6IndzYV8yMDAyIn0.2KgsTLKqRT4BZtRMFyzfjBufArNqK_sxG3L2KuaYksM",
+        "auth-token": Spotboard.config["auth_token"],
       },
       success: function (e) {
         Spotboard.$runs = e.data;
@@ -292,8 +291,7 @@ define([
         url: path,
         dataType: "json",
         headers: {
-          "auth-token":
-            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjozMjgyLCJleHBpcmUiOiIyMDIyLTA1LTAyVDAwOjQ1OjMwLjI4MjM3NSIsImNhY2hlZF91c2VybmFtZSI6IndzYV8yMDAyIn0.2KgsTLKqRT4BZtRMFyzfjBufArNqK_sxG3L2KuaYksM",
+          "auth-token": Spotboard.config["auth_token"],
         },
         success: function (data) {
           var fn = runfeeder.fetchRunsFromJson;

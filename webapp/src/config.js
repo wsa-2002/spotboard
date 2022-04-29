@@ -2,18 +2,24 @@
  * Contest Configuration
  */
 
-feed_server_path = "https://be.pdogs.ntu.im/hardcode/team-contest-scoreboard/4";
+feed_server_path = "https://be.pdogs.ntu.im/hardcode/team-contest-scoreboard";
+scoreboard_id = 4;
+auth_token =
+  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjozMjgyLCJleHBpcmUiOiIyMDIyLTA1LTAyVDAwOjQ1OjMwLjI4MjM3NSIsImNhY2hlZF91c2VybmFtZSI6IndzYV8yMDAyIn0.2KgsTLKqRT4BZtRMFyzfjBufArNqK_sxG3L2KuaYksM";
 
 config = {
   // environment: 'production' or 'develop'
   environment: "develop",
+
+  // auth token: jwt token for pdogs.ntu.im
+  auth_token: auth_token,
 
   /**
    * The following paths should be accessible:
    *    ${apiBase}/runs.json
    *    ${apiBase}/contest.json
    */
-  apiBase: feed_server_path,
+  apiBase: feed_server_path + "/" + scoreboard_id,
 
   /**
    * Specify additional paths to WebSocket event notifier or award information.
@@ -70,7 +76,7 @@ config = {
    *
    * This option is ignored (always set true) in the award mode.
    */
-  animation: false,
+  animation: true,
 
   /** The delay time (in milliseconds) to between two consecutive run feeding. */
   auto_play_delay: 100,
