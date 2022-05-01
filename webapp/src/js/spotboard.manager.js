@@ -75,13 +75,14 @@ define([
   Spotboard.Manager.loadRuns = function () {
     var $df = new $.Deferred();
 
-    var path = joinPath(Spotboard.config["apiBase"], "/runs");
+    // var path = joinPath(Spotboard.config["apiBase"], "/runs");
+    var path = joinPath(Spotboard.config["apiBase"], "/runs.json");
     $.ajax({
       url: path,
       dataType: "json",
-      headers: {
-        "auth-token": Spotboard.config["auth_token"],
-      },
+      // headers: {
+      //   "auth-token": Spotboard.config["auth_token"],
+      // },
       success: function (e) {
         if (e.data.time.NoMoreUpdate) {
           $df.resolve("success");
@@ -289,7 +290,8 @@ define([
       var is_autodiff = Spotboard.config["auto_rundiff"];
       var path = joinPath(
         Spotboard.config["apiBase"],
-        is_autodiff ? "/runs" : "/changed_runs.json"
+        // is_autodiff ? "/runs" : "/changed_runs.json"
+        is_autodiff ? "/runs.json" : "/changed_runs.json"
       );
       $.ajax({
         url: path,

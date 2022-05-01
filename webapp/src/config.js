@@ -2,10 +2,10 @@
  * Contest Configuration
  */
 
-feed_server_path = "https://be.pdogs.ntu.im/hardcode/team-contest-scoreboard";
+// feed_server_path = "https://be.pdogs.ntu.im/hardcode/team-contest-scoreboard"; // pdogs api endpoint
+feed_server_path = "./sample/";
 scoreboard_id = 4;
-auth_token =
-  "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhY2NvdW50X2lkIjozMjgyLCJleHBpcmUiOiIyMDIyLTA1LTAyVDAwOjQ1OjMwLjI4MjM3NSIsImNhY2hlZF91c2VybmFtZSI6IndzYV8yMDAyIn0.2KgsTLKqRT4BZtRMFyzfjBufArNqK_sxG3L2KuaYksM";
+auth_token = ""; // fill in pdogs jwt auth token
 
 config = {
   // environment: 'production' or 'develop'
@@ -19,7 +19,8 @@ config = {
    *    ${apiBase}/runs.json
    *    ${apiBase}/contest.json
    */
-  apiBase: feed_server_path + "/" + scoreboard_id,
+  // apiBase: feed_server_path + "/" + scoreboard_id,
+  apiBase: feed_server_path,
 
   /**
    * Specify additional paths to WebSocket event notifier or award information.
